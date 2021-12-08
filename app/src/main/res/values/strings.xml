@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">Wisdom of Life</string>
+    <string name="note_image_description">QuoteImage</string>
+    <string name="filter">Filter</string>
+    <string name="filters">FILTER</string>
+    <string name="add_new_note">Add new quote</string>
+    <string name="save_note">Save quote</string>
+    <string name="filter_notes">Filter quote</string>
+    <string name="image_note">Saved image of quote</string>
+    <string name="hint_title">Title</string>
+    <string name="finish">Finish</string>
+    <string name="hint_image_url">Optional Image URL</string>
+    <string name="hint_description">Description</string>
+    <string name="popup_title">ERROR SAVING CONTENT</string>
 </resources>
