@@ -9,12 +9,26 @@ data class Quote(
     val author: String?,
     @FontRes
     val textFont: Int,
+    val testSize: QuoteTextSize,
     val backgroundImageUrl: String,
     val backgroundColor: QuoteColor?,
-    val textOrientation: QuoteOrientation,
+    val textVerticalOrientation: QuoteVerticalOrientation,
+    val textHorizontalOrientation: QuoteHorizontalOrientation,
 )
 
-enum class QuoteOrientation(val value: Int) {
+enum class QuoteTextSize(val value: Int) {
+    SMALL(11),
+    MEDIUM(30),
+    BIG(60)
+}
+
+enum class QuoteVerticalOrientation(val value: Int) {
+    UP(0),
+    MIDDLE(1),
+    DOWN(2),
+}
+
+enum class QuoteHorizontalOrientation(val value: Int) {
     LEFT(0),
     MIDDLE(1),
     RIGHT(2),
