@@ -9,11 +9,12 @@ data class Quote(
     val author: String?,
     @FontRes
     val textFont: Int,
-    val testSize: QuoteTextSize,
+    val textSize: QuoteTextSize,
     val backgroundImageUrl: String,
-    val backgroundColor: QuoteColor?,
+    val backgroundColor: QuoteColor,
     val textVerticalOrientation: QuoteVerticalOrientation,
     val textHorizontalOrientation: QuoteHorizontalOrientation,
+    var db_id: Int? = null
 )
 
 enum class QuoteTextSize(val value: Int) {

@@ -9,7 +9,7 @@ import com.berker.wisdomoflife.databinding.RvItemQuiteBinding
 import com.berker.wisdomoflife.domain.model.Quote
 
 class QuoteListAdapter(
-    private var itemClickListener: ((Quote) -> Unit)? = null
+    var itemClickListener: ((Quote) -> Unit)? = null
 ) : RecyclerView.Adapter<QuoteListViewHolder>() {
 
     private var itemList: List<Quote> = emptyList()

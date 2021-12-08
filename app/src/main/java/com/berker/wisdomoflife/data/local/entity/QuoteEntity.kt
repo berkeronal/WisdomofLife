@@ -1,22 +1,20 @@
 package com.berker.wisdomoflife.data.local.entity
 
-import androidx.annotation.FontRes
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.berker.wisdomoflife.domain.model.Quote
-import com.berker.wisdomoflife.domain.model.QuoteColor
-import com.berker.wisdomoflife.domain.model.QuoteOrientation
+import com.berker.wisdomoflife.domain.model.*
 
 @Entity
 data class QuoteEntity(
     val name: String,
     val content: String,
     val author: String?,
-    @FontRes
     val textFont: Int,
+    val textSize: Int,
     val backgroundImageUrl: String,
-    val backgroundColor: QuoteColor?,
-    val textOrientation: QuoteOrientation,
+    val backgroundColor: Int,
+    val textVerticalOrientation: Int,
+    val textHorizontalOrientation: Int,
     @PrimaryKey val id: Int? = null
 ) {
     fun toQuote(): Quote {
@@ -25,9 +23,18 @@ data class QuoteEntity(
             content = content,
             author = author,
             textFont = textFont,
+            textSize = QuoteTextSize.values().find { x -> x.value == textSize }
+                ?: QuoteTextSize.MEDIUM,
             backgroundImageUrl = backgroundImageUrl,
-            backgroundColor = backgroundColor,
-            textOrientation = textOrientation
+            backgroundColor = QuoteColor.values().find { x -> x.value == backgroundColor }
+                ?: QuoteColor.AQUA,
+            textVerticalOrientation = QuoteVerticalOrientation.values()
+                .find { x -> x.value == textVerticalOrientation }
+                ?: QuoteVerticalOrientation.MIDDLE,
+            textHorizontalOrientation = QuoteHorizontalOrientation.values()
+                .find { x -> x.value == textHorizontalOrientation }
+                ?: QuoteHorizontalOrientation.MIDDLE,
+            db_id = id
         )
     }
 }

@@ -1,11 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/default_navigation"
     app:startDestination="@id/quoteListFragment">
 
     <fragment
         android:id="@+id/quoteListFragment"
         android:name="com.berker.wisdomoflife.ui.quote.list.QuoteListFragment"
-        android:label="QuoteListFragment" />
+        android:label="QuoteListFragment" >
+        <action
+            android:id="@+id/action_quoteListFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.berker.wisdomoflife.ui.quote.detail.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail" >
+        <argument
+            android:name="quoteDbId"
+            app:argType="integer" />
+    </fragment>
 </navigation>
