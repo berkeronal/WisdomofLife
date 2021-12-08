@@ -11,7 +11,7 @@ import com.berker.wisdomoflife.data.local.entity.QuoteEntity
 )
 abstract class QuoteDatabase : RoomDatabase() {
 
-    abstract val dao: QuoteDao
+    abstract val quoteDao: QuoteDao
 
     companion object {
         const val DB_NAME = "QUOTES_DATABASE"

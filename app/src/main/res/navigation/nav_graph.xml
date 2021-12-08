@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/default_navigation"
+    app:startDestination="@id/quoteListFragment">
+
+    <fragment
+        android:id="@+id/quoteListFragment"
+        android:name="com.berker.wisdomoflife.ui.quote.list.QuoteListFragment"
+        android:label="QuoteListFragment" />
+</navigation>
