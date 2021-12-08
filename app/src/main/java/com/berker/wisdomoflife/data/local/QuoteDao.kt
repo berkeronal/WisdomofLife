@@ -5,6 +5,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.berker.wisdomoflife.data.local.entity.QuoteEntity
+import com.berker.wisdomoflife.domain.model.Quote
 
 @Dao
 interface QuoteDao {
@@ -20,4 +21,7 @@ interface QuoteDao {
 
     @Query("DELETE FROM quoteentity WHERE id= :quoteId")
     suspend fun deleteQuote(quoteId: Int)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertQuotes(quotesList: List<QuoteEntity>)
 }

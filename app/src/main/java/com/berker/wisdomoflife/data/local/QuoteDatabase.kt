@@ -1,13 +1,17 @@
 package com.berker.wisdomoflife.data.local
 
 import androidx.room.Database
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
 import androidx.room.RoomDatabase
 import com.berker.wisdomoflife.common.Constants.DB_VERSION
 import com.berker.wisdomoflife.data.local.entity.QuoteEntity
+import com.berker.wisdomoflife.domain.model.Quote
 
 @Database(
     entities = [QuoteEntity::class],
     version = DB_VERSION,
+    exportSchema = false
 )
 abstract class QuoteDatabase : RoomDatabase() {
 

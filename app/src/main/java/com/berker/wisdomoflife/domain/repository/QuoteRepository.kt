@@ -7,4 +7,5 @@ import kotlinx.coroutines.flow.Flow
 interface QuoteRepository {
 
     fun getQuotes(): Flow<Resource<List<Quote>>>
+    suspend fun insertQuote(newQuote: Quote)
 }

@@ -21,4 +21,9 @@ class QuoteRepositoryImpl(
             emit(Resource.Error(e.localizedMessage ?: "Error"))
         }
     }
+
+    override suspend fun insertQuote(newQuote: Quote) {
+        dao.insertQuote(quote = newQuote.toQuoteEntity())
+    }
+
 }

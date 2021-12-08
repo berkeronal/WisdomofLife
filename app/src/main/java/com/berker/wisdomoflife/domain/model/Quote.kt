@@ -2,6 +2,7 @@ package com.berker.wisdomoflife.domain.model
 
 import androidx.annotation.FontRes
 import com.berker.wisdomoflife.R
+import com.berker.wisdomoflife.data.local.entity.QuoteEntity
 
 data class Quote(
     val name: String,
@@ -15,7 +16,21 @@ data class Quote(
     val textVerticalOrientation: QuoteVerticalOrientation,
     val textHorizontalOrientation: QuoteHorizontalOrientation,
     var db_id: Int? = null
-)
+) {
+    fun toQuoteEntity(): QuoteEntity {
+        return QuoteEntity(
+            name = name,
+            content = content,
+            author = author,
+            textFont = textFont,
+            textSize = textSize.value,
+            backgroundImageUrl = backgroundImageUrl,
+            backgroundColor = backgroundColor.value,
+            textHorizontalOrientation = textHorizontalOrientation.value,
+            textVerticalOrientation = textHorizontalOrientation.value,
+        )
+    }
+}
 
 enum class QuoteTextSize(val value: Int) {
     SMALL(11),
