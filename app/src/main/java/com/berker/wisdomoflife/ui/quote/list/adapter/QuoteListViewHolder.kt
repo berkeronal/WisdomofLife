@@ -6,6 +6,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.berker.wisdomoflife.R
 import com.berker.wisdomoflife.databinding.RvItemQuiteBinding
 import com.berker.wisdomoflife.domain.model.Quote
+import com.berker.wisdomoflife.domain.model.QuoteWeatherType
+import com.berker.wisdomoflife.domain.model.QuoteWeatherType.*
 import com.berker.wisdomoflife.ui.quote.list.extension.setFont
 import com.berker.wisdomoflife.ui.quote.list.extension.setImage
 import com.github.matteobattilana.weather.PrecipType
@@ -32,21 +34,8 @@ class QuoteListViewHolder(
             tvContent.textAlignment = quote.textHorizontalOrientation.value
             tvContent.setTextColor(quote.textColor.value)
 
-            wvRootWeather.setWeatherData(PrecipType.SNOW)
-            wvRootWeather.fadeOutPercent = 100f
-            wvRootWeather.angle = Random.nextInt(0, 80)
-            wvRootWeather.speed = Random.nextInt(100, 500)
-            val randomLeafSize = Random.nextInt(20, 60)
-            wvRootWeather.setCustomBitmap(
-                Bitmap.createScaledBitmap(
-                    BitmapFactory.decodeResource(
-                        itemView.resources,
-                        R.drawable.leaf
-                    ),
-                    randomLeafSize, randomLeafSize, false
-                )
 
-            )
+            initWeather(quote.weatherType)
 
             clItemRoot.setBackgroundColor(
                 itemBinding.root.resources.getColor(
@@ -54,6 +43,44 @@ class QuoteListViewHolder(
                     null
                 )
             )
+        }
+    }
+
+    private fun initWeather(quoteWeatherType: QuoteWeatherType) {
+        with(itemBinding.wvRootWeather) {
+            when (quoteWeatherType) {
+                SNOW -> {
+                    setWeatherData(PrecipType.SNOW)
+                    fadeOutPercent = 100f
+                    angle = Random.nextInt(0, 80)
+                    speed = Random.nextInt(100, 500)
+                }
+                RAIN -> {
+                    setWeatherData(PrecipType.RAIN)
+                    fadeOutPercent = 100f
+                    angle = Random.nextInt(0, 80)
+                    speed = Random.nextInt(100, 500)
+                }
+                AUTUMN -> {
+                    emissionRate = 10f
+                    fadeOutPercent = 100f
+                    angle = Random.nextInt(0, 80)
+                    speed = Random.nextInt(100, 500)
+                    val randomLeafSize = Random.nextInt(30, 60)
+                    setCustomBitmap(
+                        Bitmap.createScaledBitmap(
+                            BitmapFactory.decodeResource(
+                                itemView.resources,
+                                R.drawable.leaf
+                            ),
+                            randomLeafSize, randomLeafSize, false
+                        )
+                    )
+                }
+                NONE -> {
+                    setWeatherData(PrecipType.CLEAR)
+                }
+            }
         }
     }
 
