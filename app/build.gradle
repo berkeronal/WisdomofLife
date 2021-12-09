@@ -103,4 +103,6 @@ dependencies {
     // Kotlin Extensions and Coroutines support for Room
     implementation "androidx.room:room-ktx:$roomKotlinExtensionVersion"
 
+    //Weather animation
+    implementation 'com.github.matteobattilana:weatherview:3.0.0'
 }
