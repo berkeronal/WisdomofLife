@@ -1,6 +1,5 @@
 package com.berker.wisdomoflife.ui.quote.list
 
-import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.flowWithLifecycle
@@ -58,5 +57,12 @@ class QuoteListFragment : BaseFragment<FragmentQuoteListBinding>() {
 
     private fun initRecyclerView() {
         binding.adapter = quoteListAdapter
+        binding.rvNotesList.apply {
+            addItemDecoration(
+                QuoteItemDecoration(
+                    resources.getDimension(R.dimen.rv_padding).toInt()
+                )
+            )
+        }
     }
 }
