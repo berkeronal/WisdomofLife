@@ -25,5 +25,4 @@ class QuoteRepositoryImpl(
     override suspend fun insertQuote(newQuote: Quote) {
         dao.insertQuote(quote = newQuote.toQuoteEntity())
     }
-
 }
