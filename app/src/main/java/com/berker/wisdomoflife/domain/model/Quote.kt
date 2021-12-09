@@ -67,6 +67,7 @@ enum class QuoteColor(val value: Int) {
     GREEN(R.color.quote_green),
     ORANGE(R.color.quote_orange),
     RED(R.color.quote_red),
+    GREY(R.color.quote_grey)
 }
 
 enum class QuoteTextColor(val value: Int) {
@@ -76,6 +77,7 @@ enum class QuoteTextColor(val value: Int) {
     GREEN(R.color.quote_green),
     ORANGE(R.color.quote_orange),
     RED(R.color.quote_red),
+    WHITE(R.color.white_soft),
 }
 
 enum class QuoteFonts(val value: Int) {
