@@ -15,4 +15,6 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="image">Image</string>
+    <string name="etv_quote_content_holder">Input Quote Input Quote</string>
+    <string name="etv_quote_author_holder">Input Author</string>
 </resources>

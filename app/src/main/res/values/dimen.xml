@@ -6,4 +6,6 @@
     <dimen name="card_padding">8dp</dimen>
     <dimen name="card_tvContent_vertical_padding">20dp</dimen>
     <dimen name="card_tvContent_horizontal_padding">8dp</dimen>
+    <dimen name="etv_secondary">16sp</dimen>
+    <dimen name="applicationPaddingHalf">10dp</dimen>
 </resources>

@@ -18,8 +18,11 @@ abstract class BaseFragment<T : ViewDataBinding> : Fragment() {
         savedInstanceState: Bundle?,
     ): View? {
         _binding = DataBindingUtil.inflate(inflater, layoutId(), container, false)
+        initOnCreateView(savedInstanceState)
         return binding.root
     }
+
+    open fun initOnCreateView(savedInstanceState: Bundle?) {}
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -28,7 +31,6 @@ abstract class BaseFragment<T : ViewDataBinding> : Fragment() {
 
     }
 
-    open fun initFragment() {}
     abstract fun initUi()
 
     override fun onDestroyView() {

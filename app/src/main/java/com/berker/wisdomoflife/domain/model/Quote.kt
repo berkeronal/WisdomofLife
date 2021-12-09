@@ -47,6 +47,7 @@ enum class QuoteBackgroundImageOpacity(val value: Float) {
     NONE(0F),
     LOW(0.3F),
     MID(0.5F),
+    HIGH(0.8F),
     FULL(1F)
 }
 

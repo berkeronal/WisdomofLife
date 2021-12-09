@@ -15,9 +15,9 @@
     </fragment>
     <fragment
         android:id="@+id/detailFragment"
-        android:name="com.berker.wisdomoflife.ui.quote.detail.DetailFragment"
+        android:name="com.berker.wisdomoflife.ui.quote.detail.QuoteDetailFragment"
         android:label="fragment_detail"
-        tools:layout="@layout/fragment_detail" >
+        tools:layout="@layout/fragment_quote_detail" >
         <argument
             android:name="quoteDbId"
             app:argType="integer" />
