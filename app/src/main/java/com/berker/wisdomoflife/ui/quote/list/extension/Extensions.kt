@@ -14,6 +14,7 @@ fun ImageView.setImage(url: String) {
         .into(this)
 }
 
-fun TextView.setFont(fontId: Int) {
+fun TextView.setFontAndColor(fontId: Int, textColor: Int) {
     this.typeface = ResourcesCompat.getFont(this.context, fontId)
+    this.setTextColor(ResourcesCompat.getColor(this.context.resources, textColor, null))
 }

@@ -4,10 +4,7 @@ import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.berker.wisdomoflife.R
 import com.berker.wisdomoflife.data.local.entity.QuoteEntity
-import com.berker.wisdomoflife.domain.model.QuoteHorizontalOrientation
-import com.berker.wisdomoflife.domain.model.QuoteTextColor
-import com.berker.wisdomoflife.domain.model.QuoteTextSize
-import com.berker.wisdomoflife.domain.model.QuoteWeatherType
+import com.berker.wisdomoflife.domain.model.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -35,9 +32,10 @@ class QuoteDbCallback(
                     "Mustafa Kemal Atatürk",
                     R.font.handlee,
                     QuoteTextSize.SMALL.value,
-                    QuoteTextColor.WHITE.value,
-                    QuoteWeatherType.RAIN.value,
-                    "",
+                    QuoteTextColor.SOFT_WHITE.value,
+                    QuoteWeatherType.HEAVY_RAIN.value,
+                    "https://cdn.karar.com/news/1401499.jpg",
+                    QuoteBackgroundImageOpacity.LOW.value,
                     R.color.quote_grey,
                     1,
                     QuoteHorizontalOrientation.MIDDLE.value,
@@ -47,9 +45,10 @@ class QuoteDbCallback(
                     "Nelson Mandela",
                     R.font.eater,
                     QuoteTextSize.SMALL.value,
-                    QuoteTextColor.AQUA.value,
+                    QuoteTextColor.WHITE.value,
                     QuoteWeatherType.SNOW.value,
-                    "",
+                    "https://i.pinimg.com/originals/d4/48/53/d4485383fc6d4b6b357e4fe6442d1587.jpg",
+                    QuoteBackgroundImageOpacity.FULL.value,
                     R.color.quote_green,
                     1,
                     QuoteHorizontalOrientation.MIDDLE.value,
@@ -59,9 +58,10 @@ class QuoteDbCallback(
                     "Confucius",
                     R.font.aclonica,
                     QuoteTextSize.MEDIUM.value,
-                    QuoteTextColor.RED.value,
+                    QuoteTextColor.MINT.value,
                     QuoteWeatherType.AUTUMN.value,
                     "",
+                    QuoteBackgroundImageOpacity.NONE.value,
                     R.color.quote_orange,
                     1,
                     QuoteHorizontalOrientation.LEFT.value,
@@ -74,6 +74,7 @@ class QuoteDbCallback(
                     QuoteTextColor.ORANGE.value,
                     QuoteWeatherType.NONE.value,
                     "",
+                    QuoteBackgroundImageOpacity.NONE.value,
                     R.color.quote_mint,
                     1,
                     QuoteHorizontalOrientation.RIGHT.value,
@@ -83,9 +84,10 @@ class QuoteDbCallback(
                     "Oprah Winfrey",
                     R.font.droid_sans_mono,
                     QuoteTextSize.MEDIUM.value,
-                    QuoteTextColor.GREEN.value,
+                    QuoteTextColor.RED.value,
                     QuoteWeatherType.SNOW.value,
                     "",
+                    QuoteBackgroundImageOpacity.NONE.value,
                     R.color.quote_green,
                     1,
                     QuoteHorizontalOrientation.MIDDLE.value,
@@ -98,6 +100,7 @@ class QuoteDbCallback(
                     QuoteTextColor.GREEN.value,
                     QuoteWeatherType.RAIN.value,
                     "",
+                    QuoteBackgroundImageOpacity.NONE.value,
                     R.color.quote_orange,
                     1,
                     QuoteHorizontalOrientation.MIDDLE.value,
@@ -110,6 +113,7 @@ class QuoteDbCallback(
                     QuoteTextColor.GREEN.value,
                     QuoteWeatherType.SNOW.value,
                     "",
+                    QuoteBackgroundImageOpacity.NONE.value,
                     R.color.quote_red,
                     1,
                     QuoteHorizontalOrientation.MIDDLE.value,
@@ -122,6 +126,7 @@ class QuoteDbCallback(
                     QuoteTextColor.GREEN.value,
                     QuoteWeatherType.RAIN.value,
                     "",
+                    QuoteBackgroundImageOpacity.NONE.value,
                     R.color.quote_blue,
                     1,
                     QuoteHorizontalOrientation.MIDDLE.value,
@@ -134,6 +139,7 @@ class QuoteDbCallback(
                     QuoteTextColor.GREEN.value,
                     QuoteWeatherType.SNOW.value,
                     "",
+                    QuoteBackgroundImageOpacity.NONE.value,
                     R.color.quote_blue,
                     1,
                     QuoteHorizontalOrientation.MIDDLE.value,
@@ -146,6 +152,7 @@ class QuoteDbCallback(
                     QuoteTextColor.GREEN.value,
                     QuoteWeatherType.AUTUMN.value,
                     "",
+                    QuoteBackgroundImageOpacity.NONE.value,
                     R.color.quote_blue,
                     1,
                     QuoteHorizontalOrientation.MIDDLE.value,

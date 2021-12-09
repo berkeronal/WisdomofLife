@@ -13,6 +13,7 @@ data class Quote(
     val textColor: QuoteTextColor,
     val weatherType: QuoteWeatherType,
     val backgroundImageUrl: String,
+    val backgroundImageOpacity: QuoteBackgroundImageOpacity,
     val backgroundColor: QuoteColor,
     val textVerticalOrientation: QuoteVerticalOrientation,
     val textHorizontalOrientation: QuoteHorizontalOrientation,
@@ -28,6 +29,7 @@ data class Quote(
             textColor = textColor.value,
             weatherType = weatherType.value,
             backgroundImageUrl = backgroundImageUrl,
+            backgroundImageOpacity = backgroundImageOpacity.value,
             backgroundColor = backgroundColor.value,
             textHorizontalOrientation = textHorizontalOrientation.value,
             textVerticalOrientation = textHorizontalOrientation.value,
@@ -39,6 +41,13 @@ enum class QuoteTextSize(val value: Float) {
     SMALL(20F),
     MEDIUM(30F),
     BIG(40F)
+}
+
+enum class QuoteBackgroundImageOpacity(val value: Float) {
+    NONE(0F),
+    LOW(0.3F),
+    MID(0.5F),
+    FULL(1F)
 }
 
 enum class QuoteVerticalOrientation(val value: Int) {
@@ -56,8 +65,9 @@ enum class QuoteHorizontalOrientation(val value: Int) {
 enum class QuoteWeatherType(val value: Int) {
     SNOW(0),
     RAIN(1),
-    AUTUMN(2),
-    NONE(3),
+    HEAVY_RAIN(2),
+    AUTUMN(3),
+    NONE(4),
 }
 
 enum class QuoteColor(val value: Int) {
@@ -77,7 +87,9 @@ enum class QuoteTextColor(val value: Int) {
     GREEN(R.color.quote_green),
     ORANGE(R.color.quote_orange),
     RED(R.color.quote_red),
-    WHITE(R.color.white_soft),
+    SOFT_WHITE(R.color.white_soft),
+    WHITE(R.color.white),
+    BLACK(R.color.black),
 }
 
 enum class QuoteFonts(val value: Int) {

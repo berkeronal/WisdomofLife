@@ -13,4 +13,14 @@
         <item name="android:textSize">22sp</item>
         <item name="android:textStyle">bold</item>
     </style>
+
+    <style name="tvContent">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:paddingHorizontal">@dimen/card_tvContent_horizontal_padding</item>
+        <item name="android:paddingVertical">@dimen/card_tvContent_vertical_padding</item>
+        <item name="android:textColor">@color/white_soft</item>
+        <item name="android:textSize">14sp</item>
+    </style>
 </resources>

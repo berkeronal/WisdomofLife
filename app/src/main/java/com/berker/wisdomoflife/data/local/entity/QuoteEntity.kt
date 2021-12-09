@@ -13,6 +13,7 @@ data class QuoteEntity(
     val textColor: Int,
     val weatherType: Int,
     val backgroundImageUrl: String,
+    val backgroundImageOpacity: Float,
     val backgroundColor: Int,
     val textVerticalOrientation: Int,
     val textHorizontalOrientation: Int,
@@ -31,8 +32,10 @@ data class QuoteEntity(
             weatherType = QuoteWeatherType.values().find { x -> x.value == weatherType }
                 ?: QuoteWeatherType.NONE,
             backgroundImageUrl = backgroundImageUrl,
-            backgroundColor = QuoteColor.values().find { x -> x.value == backgroundColor }
-                ?: QuoteColor.AQUA,
+            backgroundImageOpacity = QuoteBackgroundImageOpacity.values()
+                .find { x -> x.value == backgroundImageOpacity } ?: QuoteBackgroundImageOpacity.LOW,
+            backgroundColor = QuoteColor . values ().find { x -> x.value == backgroundColor }
+            ?: QuoteColor.AQUA,
             textVerticalOrientation = QuoteVerticalOrientation.values()
                 .find { x -> x.value == textVerticalOrientation }
                 ?: QuoteVerticalOrientation.MIDDLE,
