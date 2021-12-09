@@ -6,25 +6,27 @@ import com.berker.wisdomoflife.domain.model.*
 
 @Entity
 data class QuoteEntity(
-    val name: String,
     val content: String,
     val author: String?,
     val textFont: Int,
-    val textSize: Int,
+    val textSize: Float,
+    val textColor: Int,
     val backgroundImageUrl: String,
     val backgroundColor: Int,
     val textVerticalOrientation: Int,
     val textHorizontalOrientation: Int,
-    @PrimaryKey val id: Int? = null
+    @PrimaryKey val id: Int? = null,
+    val animationId: Int? = null,
 ) {
     fun toQuote(): Quote {
         return Quote(
-            name = name,
             content = content,
             author = author,
             textFont = textFont,
             textSize = QuoteTextSize.values().find { x -> x.value == textSize }
                 ?: QuoteTextSize.MEDIUM,
+            textColor = QuoteTextColor.values().find { x -> x.value == textColor }
+                ?: QuoteTextColor.RED,
             backgroundImageUrl = backgroundImageUrl,
             backgroundColor = QuoteColor.values().find { x -> x.value == backgroundColor }
                 ?: QuoteColor.AQUA,
@@ -34,7 +36,8 @@ data class QuoteEntity(
             textHorizontalOrientation = QuoteHorizontalOrientation.values()
                 .find { x -> x.value == textHorizontalOrientation }
                 ?: QuoteHorizontalOrientation.MIDDLE,
-            db_id = id
+            db_id = id,
+            animationId = animationId,
         )
     }
 }

@@ -4,6 +4,9 @@ import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.berker.wisdomoflife.R
 import com.berker.wisdomoflife.data.local.entity.QuoteEntity
+import com.berker.wisdomoflife.domain.model.QuoteHorizontalOrientation
+import com.berker.wisdomoflife.domain.model.QuoteTextColor
+import com.berker.wisdomoflife.domain.model.QuoteTextSize
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -21,43 +24,55 @@ class QuoteDbCallback(
             createInitialRecords()
         }
     }
+
     //TODO(find 10 quotes)
     private fun createInitialRecords() {
         provider.get().insertQuotes(
             listOf(
                 QuoteEntity(
-                    "berrker",
-                    "berrrkerr",
+                    "The greatest glory in living lies not in never falling, but in rising every time we fall.",
+                    "Nelson Mandela",
+                    R.font.abril_fatface,
+                    QuoteTextSize.SMALL.value,
+                    QuoteTextColor.AQUA.value,
                     "",
-                    R.font.aclonica,
-                    11,
-                    "",
-                    R.color.note_aqua,
+                    R.color.quote_green,
                     1,
-                    1,
+                    QuoteHorizontalOrientation.MIDDLE.value,
                 ),
                 QuoteEntity(
-                    "berrker",
-                    "berrrkerr",
-                    "",
+                    "Life is really simple, but we insist on making it complicated.",
+                    "Confucius",
                     R.font.aclonica,
-                    11,
+                    QuoteTextSize.MEDIUM.value,
+                    QuoteTextColor.RED.value,
                     "",
-                    R.color.note_aqua,
+                    R.color.quote_orange,
                     1,
-                    1,
+                    QuoteHorizontalOrientation.LEFT.value,
                 ),
                 QuoteEntity(
-                    "berrker",
-                    "berrrkerr",
+                    "If you set your goals ridiculousl high and it's a failure, you will fail above everyone else's success.",
+                    "Jameson Cameron",
+                    R.font.amatic_sc,
+                    QuoteTextSize.BIG.value,
+                    QuoteTextColor.ORANGE.value,
                     "",
-                    R.font.aclonica,
-                    11,
+                    R.color.quote_mint,
+                    1,
+                    QuoteHorizontalOrientation.RIGHT.value,
+                ),
+                QuoteEntity(
+                    "You know you are on the road to success if you would do your job and not be paid for it.",
+                    "Oprah Winfrey",
+                    R.font.droid_sans_mono,
+                    QuoteTextSize.MEDIUM.value,
+                    QuoteTextColor.GREEN.value,
                     "",
-                    R.color.note_aqua,
+                    R.color.quote_green,
                     1,
-                    1,
-                )
+                    QuoteHorizontalOrientation.MIDDLE.value,
+                ),
             )
         )
     }
