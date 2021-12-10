@@ -69,8 +69,8 @@ class QuoteDetailFragment : BaseFragment<FragmentQuoteDetailBinding>() {
             quoteDetailViewModel.quoteDetailUiEventFlow.flowWithLifecycle(
                 viewLifecycleOwner.lifecycle,
                 Lifecycle.State.STARTED
-            ).collectLatest { quoteDetailuiEvent->
-                when(quoteDetailuiEvent){
+            ).collectLatest { quoteDetailuiEvent ->
+                when (quoteDetailuiEvent) {
                     QuoteDetailUiEvent.SaveQuote -> {
                         findNavController().navigateUp()
                     }
@@ -82,7 +82,7 @@ class QuoteDetailFragment : BaseFragment<FragmentQuoteDetailBinding>() {
         }
     }
 
-    private fun handleEditTextOrientation(quote:Quote) {
+    private fun handleEditTextOrientation(quote: Quote) {
         when (quote.textHorizontalOrientation) {
             LEFT -> {
                 binding.etvContent.gravity = 0x03
@@ -105,6 +105,12 @@ class QuoteDetailFragment : BaseFragment<FragmentQuoteDetailBinding>() {
         binding.etvAuthor.addTextChangedListener(
             afterTextChanged = { newText ->
                 quoteDetailViewModel.onWroteAuthor(newText.toString())
+            }
+        )
+
+        binding.etvBgUrl.addTextChangedListener(
+            afterTextChanged = { newText ->
+                quoteDetailViewModel.onWroteBackgroundUrl(newText.toString())
             }
         )
     }

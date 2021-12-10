@@ -156,8 +156,9 @@
         <EditText
             android:id="@+id/etvBgUrl"
             android:layout_width="match_parent"
+            android:layout_margin="8dp"
+            android:background="@drawable/input_background"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/transparent"
             android:gravity="center"
             android:hint="@string/etv_quote_background_holder"
             android:inputType="textUri"
@@ -171,6 +172,7 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cvRootCard"
+            android:layout_marginTop="8dp"
             quoteBackgroundColor="@{quoteDetailItemViewState.getBackgroundColor(context)}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

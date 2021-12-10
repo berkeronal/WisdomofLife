@@ -79,6 +79,11 @@ class QuoteDetailViewModel @Inject constructor(
             author = newAuthorString,
         )
     }
+    fun onWroteBackgroundUrl(newBackgroundUrlString: String) {
+        _quoteDetailItemViewState.value.quote = quoteDetailItemViewState.value.quote.copy(
+            backgroundImageUrl = newBackgroundUrlString,
+        )
+    }
 
     fun onSaveQuote() {
         viewModelScope.launch {
