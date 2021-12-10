@@ -26,6 +26,17 @@ class QuoteRepositoryImpl(
         }
     }
 
+    override suspend fun getQuote(quoteId: Int): Flow<Resource<Quote>> = flow {
+        emit(Resource.Loading())
+
+        try {
+            val quote = dao.getQuote(quoteId).toQuote()
+            emit(Resource.Success(data = quote))
+        } catch (e: IOException) {
+            emit(Resource.Error(message = e.localizedMessage ?: "Error"))
+        }
+    }
+
     override suspend fun insertQuote(newQuote: Quote) {
         dao.insertQuote(quote = newQuote.toQuoteEntity())
     }

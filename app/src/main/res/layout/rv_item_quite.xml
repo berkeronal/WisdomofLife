@@ -19,7 +19,6 @@
         app:cardElevation="2dp"
         tools:background="@color/background">
 
-
         <ImageView
             android:id="@+id/ivRootImageView"
             imageUrl="@{quoteListItemViewState.getImageUrl}"
@@ -34,7 +33,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="@dimen/card_padding">
-
 
             <TextView
                 android:id="@+id/tvContent"
@@ -58,8 +56,7 @@
                 android:layout_height="wrap_content"
                 android:text="@{quoteListItemViewState.authorText}"
                 android:textColor="@color/white"
-                android:textSize="14sp"
-
+                android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

@@ -42,8 +42,6 @@ class QuoteDetailFragment : BaseFragment<FragmentQuoteDetailBinding>() {
             ).collectLatest { quoteDetailState ->
                 binding.quoteDetailState = quoteDetailState
                 binding.executePendingBindings()
-                Toast.makeText(context, "veri ${quoteDetailState.textFont}", Toast.LENGTH_SHORT)
-                    .show()
             }
         }
     }

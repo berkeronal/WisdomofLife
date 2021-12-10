@@ -47,6 +47,7 @@ class QuoteListFragment : BaseFragment<FragmentQuoteListBinding>() {
                     return@collectLatest
                 }
                 setRvData(quoteListState.quoteList)
+
                 binding.quoteListState = quoteListState
                 binding.executePendingBindings()
             }
