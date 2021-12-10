@@ -9,4 +9,5 @@ interface QuoteRepository {
     fun getQuotes(): Flow<Resource<List<Quote>>>
     fun getQuote(quoteId: Int): Flow<Resource<Quote>>
     suspend fun insertQuote(newQuote: Quote)
+    suspend fun deleteQuote(quote: Quote)
 }

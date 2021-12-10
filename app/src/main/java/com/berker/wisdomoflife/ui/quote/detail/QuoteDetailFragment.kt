@@ -6,6 +6,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.berker.wisdomoflife.R
 import com.berker.wisdomoflife.R.drawable
@@ -15,6 +16,7 @@ import com.berker.wisdomoflife.domain.model.Quote
 import com.berker.wisdomoflife.domain.model.QuoteHorizontalOrientation.*
 import com.berker.wisdomoflife.domain.model.QuoteWeatherType
 import com.berker.wisdomoflife.ui.base.BaseFragment
+import com.berker.wisdomoflife.ui.quote.detail.util.QuoteDetailUiEvent
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -60,6 +62,22 @@ class QuoteDetailFragment : BaseFragment<FragmentQuoteDetailBinding>() {
 
 
                 binding.executePendingBindings()
+            }
+        }
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            quoteDetailViewModel.quoteDetailUiEventFlow.flowWithLifecycle(
+                viewLifecycleOwner.lifecycle,
+                Lifecycle.State.STARTED
+            ).collectLatest { quoteDetailuiEvent->
+                when(quoteDetailuiEvent){
+                    QuoteDetailUiEvent.SaveQuote -> {
+                        findNavController().navigateUp()
+                    }
+                    is QuoteDetailUiEvent.ShowErrorDialog -> {
+
+                    }
+                }
             }
         }
     }

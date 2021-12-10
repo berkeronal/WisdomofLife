@@ -31,7 +31,9 @@ class QuoteListAdapter(
         itemList = newItemList
         notifyDataSetChanged()
     }
-
+    fun getItem(position: Int): Quote {
+        return itemList[position]
+    }
     private fun setFadeAnimation(view: View) {
         val anim = AlphaAnimation(0.0f, 1.0f)
         anim.duration = 200

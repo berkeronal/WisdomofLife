@@ -40,4 +40,10 @@ class QuoteRepositoryImpl(
     override suspend fun insertQuote(newQuote: Quote) {
         dao.insertQuote(quote = newQuote.toQuoteEntity())
     }
+
+    override suspend fun deleteQuote(quote: Quote) {
+        quote.db_id?.let {
+            dao.deleteQuote(it)
+        }
+    }
 }

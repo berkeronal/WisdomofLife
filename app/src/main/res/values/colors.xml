@@ -19,5 +19,6 @@
     <color name="quote_green">#AED581</color>
     <color name="quote_orange">#D58A1C</color>
     <color name="quote_red">#E57373</color>
+    <color name="quote_red_dark">#F33838</color>
     <color name="quote_grey">#E6252525</color>
 </resources>

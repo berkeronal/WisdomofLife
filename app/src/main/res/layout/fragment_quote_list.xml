@@ -11,6 +11,10 @@
         <variable
             name="quoteListState"
             type="com.berker.wisdomoflife.ui.quote.main.QuoteListState" />
+
+        <variable
+            name="quoteListViewModel"
+            type="com.berker.wisdomoflife.ui.quote.main.QuoteListViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -56,7 +60,7 @@
         </FrameLayout>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvNotesList"
+            android:id="@+id/rvQuotesList"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:adapter="@{adapter}"
@@ -69,11 +73,12 @@
             app:layout_constraintTop_toBottomOf="@+id/toolBar" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fabAddNewNote"
+            android:id="@+id/fabAddNewQuote"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/fab_margin"
             android:clickable="true"
+            android:onClick="@{()-> quoteListViewModel.onNewQuoteClicked()}"
             android:contentDescription="@string/add_new_note"
             android:focusable="true"
             app:layout_constraintBottom_toBottomOf="parent"

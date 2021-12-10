@@ -1,9 +1,6 @@
 package com.berker.wisdomoflife.common
 
-import com.berker.wisdomoflife.domain.model.QuoteFonts
-import com.berker.wisdomoflife.domain.model.QuoteHorizontalOrientation
-import com.berker.wisdomoflife.domain.model.QuoteTextColor
-import com.berker.wisdomoflife.domain.model.QuoteTextSize
+import com.berker.wisdomoflife.domain.model.*
 
 
 fun QuoteFonts.getNextFont(): QuoteFonts {
@@ -24,4 +21,13 @@ fun QuoteHorizontalOrientation.getNextAlignment(): QuoteHorizontalOrientation {
 fun QuoteTextColor.getNextTextColor(): QuoteTextColor {
     return QuoteTextColor.values()[(QuoteTextColor.values()
         .indexOf(this) + 1) % QuoteTextColor.values().size]
+}
+
+fun QuoteWeatherType.getNextWeather(): QuoteWeatherType {
+    return QuoteWeatherType.values()[(QuoteWeatherType.values()
+        .indexOf(this) + 1) % QuoteWeatherType.values().size]
+}
+
+fun QuoteColor.getNextColor(): QuoteColor {
+    return QuoteColor.values()[(QuoteColor.values().indexOf(this) + 1) % QuoteColor.values().size]
 }

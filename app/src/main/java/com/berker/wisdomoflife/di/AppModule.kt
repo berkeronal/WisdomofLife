@@ -5,10 +5,7 @@ import com.berker.wisdomoflife.data.local.QuoteDao
 import com.berker.wisdomoflife.data.local.QuoteDatabase
 import com.berker.wisdomoflife.data.repository.QuoteRepositoryImpl
 import com.berker.wisdomoflife.domain.repository.QuoteRepository
-import com.berker.wisdomoflife.domain.usecase.AddQuoteUseCase
-import com.berker.wisdomoflife.domain.usecase.GetQuoteUseCase
-import com.berker.wisdomoflife.domain.usecase.GetQuotesUseCase
-import com.berker.wisdomoflife.domain.usecase.QuoteUseCases
+import com.berker.wisdomoflife.domain.usecase.*
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -45,7 +42,8 @@ class AppModule {
         return QuoteUseCases(
             getQuotesUseCase = GetQuotesUseCase(repository),
             addQuote = AddQuoteUseCase(repository),
-            getQuoteUseCase = GetQuoteUseCase(repository)
+            getQuoteUseCase = GetQuoteUseCase(repository),
+            deleteQuoteUseCase = DeleteQuoteUseCase(repository)
         )
     }
 }
