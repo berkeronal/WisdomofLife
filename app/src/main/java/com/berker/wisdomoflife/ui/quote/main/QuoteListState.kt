@@ -5,7 +5,7 @@ import com.berker.wisdomoflife.domain.model.Quote
 
 data class QuoteListState(
     val quoteList: List<Quote> = emptyList(),
-    val isLoading: Boolean = false,
+    val isLoading: Boolean = true,
     val errorMessage: String = "",
 ){
     fun getLoadingViewVisibility() = if (isLoading) View.VISIBLE else View.GONE

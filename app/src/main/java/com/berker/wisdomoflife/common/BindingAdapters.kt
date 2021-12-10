@@ -22,8 +22,8 @@ fun MaterialCardView.setQuoteBackgroundColor(color: Int) {
 }
 
 @BindingAdapter("imageUrl")
-fun ImageView.setQuoteImage(url: String) {
-    if (url.isNotEmpty()) {
+fun ImageView.setQuoteImage(url: String?) {
+    if (!url.isNullOrEmpty()) {
         Glide.with(context)
             .load(url)
             .centerCrop()
@@ -38,8 +38,10 @@ fun TextView.setFontSize(textSize: Float) {
 }
 
 @BindingAdapter("customTextFont")
-fun TextView.setTextFont(font: Typeface) {
+fun TextView.setTextFont(font: Typeface?) {
+    font?.let {
     this.typeface = font
+    }
 }
 
 @BindingAdapter("customTextColor")

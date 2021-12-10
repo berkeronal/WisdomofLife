@@ -26,7 +26,7 @@ class QuoteRepositoryImpl(
         }
     }
 
-    override suspend fun getQuote(quoteId: Int): Flow<Resource<Quote>> = flow {
+    override fun getQuote(quoteId: Int): Flow<Resource<Quote>> = flow {
         emit(Resource.Loading())
 
         try {

@@ -6,6 +6,7 @@ import com.berker.wisdomoflife.data.local.QuoteDatabase
 import com.berker.wisdomoflife.data.repository.QuoteRepositoryImpl
 import com.berker.wisdomoflife.domain.repository.QuoteRepository
 import com.berker.wisdomoflife.domain.usecase.AddQuoteUseCase
+import com.berker.wisdomoflife.domain.usecase.GetQuoteUseCase
 import com.berker.wisdomoflife.domain.usecase.GetQuotesUseCase
 import com.berker.wisdomoflife.domain.usecase.QuoteUseCases
 import dagger.Module
@@ -43,7 +44,8 @@ class AppModule {
     fun provideQuoteUseCases(repository: QuoteRepository): QuoteUseCases {
         return QuoteUseCases(
             getQuotesUseCase = GetQuotesUseCase(repository),
-            addQuote = AddQuoteUseCase(repository)
+            addQuote = AddQuoteUseCase(repository),
+            getQuoteUseCase = GetQuoteUseCase(repository)
         )
     }
 }

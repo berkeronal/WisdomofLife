@@ -131,13 +131,26 @@ object DatabaseInitialDataProvider{
                 R.font.monoton,
                 QuoteTextSize.BIG.value,
                 QuoteTextColor.GREEN.colorResourceId,
-                QuoteWeatherType.AUTUMN.value,
+                QuoteWeatherType.NONE.value,
                 "https://c.tenor.com/D5KwUtBCa5sAAAAC/baby-yoda-baby.gif",
                 QuoteBackgroundImageOpacity.HIGH.value,
                 R.color.quote_blue,
                 1,
                 QuoteHorizontalOrientation.MIDDLE.value,
             ),
+             QuoteEntity(
+                 "TOKATTT!!",
+                 "KEKOD",
+                 R.font.monoton,
+                 QuoteTextSize.BIG.value,
+                 QuoteTextColor.GREEN.colorResourceId,
+                 QuoteWeatherType.NONE.value,
+                 "https://c.tenor.com/WqSMASZMciYAAAAd/slap-angry.gif",
+                 QuoteBackgroundImageOpacity.HIGH.value,
+                 R.color.quote_blue,
+                 1,
+                 QuoteHorizontalOrientation.MIDDLE.value,
+             ),
         )
     }
 }

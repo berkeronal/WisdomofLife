@@ -13,6 +13,9 @@ interface QuoteDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertQuote(quote: QuoteEntity)
 
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertQuotes(quotesList: List<QuoteEntity>)
+
     @Query("SELECT * FROM quoteentity")
     fun getQuotes(): Flow<List<QuoteEntity>>
 
@@ -22,6 +25,5 @@ interface QuoteDao {
     @Query("DELETE FROM quoteentity WHERE id= :quoteId")
     suspend fun deleteQuote(quoteId: Int)
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertQuotes(quotesList: List<QuoteEntity>)
+
 }

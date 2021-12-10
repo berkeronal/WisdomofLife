@@ -33,6 +33,7 @@ data class Quote(
             backgroundColor = backgroundColor.colorResourceId,
             textHorizontalOrientation = textHorizontalOrientation.value,
             textVerticalOrientation = textHorizontalOrientation.value,
+            id = db_id
         )
     }
 }
@@ -58,9 +59,9 @@ enum class QuoteVerticalOrientation(val value: Int) {
 }
 
 enum class QuoteHorizontalOrientation(val value: Int) {
-    LEFT(1),
+    LEFT(2),
     MIDDLE(4),
-    RIGHT(3),
+    RIGHT(6),
 }
 
 enum class QuoteWeatherType(val value: Int) {
@@ -96,7 +97,15 @@ enum class QuoteTextColor(val colorResourceId: Int) {
 enum class QuoteFonts(val fontResourceId: Int) {
     Abril(R.font.abril_fatface),
     Aclonica(R.font.aclonica),
+    Aguafina(R.font.aguafina_script),
+    AlfaSlab(R.font.alfa_slab_one),
     Amatic(R.font.amatic_sc),
+    Droid(R.font.droid_sans_mono),
+    Eater(R.font.eater),
+    FontDiner(R.font.fontdiner_swanky),
+    Handlee(R.font.handlee),
+    Monoton(R.font.monoton),
+    Nosifer(R.font.nosifer)
 
 }
 
