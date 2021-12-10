@@ -7,7 +7,10 @@
 
         <variable
             name="adapter"
-            type="com.berker.wisdomoflife.ui.quote.list.adapter.QuoteListAdapter" />
+            type="com.berker.wisdomoflife.ui.quote.main.adapter.QuoteListAdapter" />
+        <variable
+            name="quoteListState"
+            type="com.berker.wisdomoflife.ui.quote.main.QuoteListState" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -74,7 +77,34 @@
             android:contentDescription="@string/add_new_note"
             android:focusable="true"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:srcCompat="@android:drawable/ic_input_add" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:visibility="@{quoteListState.loadingViewVisibility}"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_downloading"
+            android:gravity="center"
+            android:padding="@dimen/card_padding"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ProgressBar
+                android:layout_width="48dp"
+                android:layout_height="48dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/padding_8dp"
+                android:text="@string/loading_text"
+                android:textColor="@color/white_soft"
+                android:textSize="16sp" />
+        </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 </layout>

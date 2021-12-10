@@ -1,9 +1,12 @@
-package com.berker.wisdomoflife.ui.quote.list
+package com.berker.wisdomoflife.ui.quote.main
 
+import android.view.View
 import com.berker.wisdomoflife.domain.model.Quote
 
 data class QuoteListState(
     val quoteList: List<Quote> = emptyList(),
     val isLoading: Boolean = false,
     val errorMessage: String = "",
-)
+){
+    fun getLoadingViewVisibility() = if (isLoading) View.VISIBLE else View.GONE
+}

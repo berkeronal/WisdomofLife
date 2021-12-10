@@ -1,4 +1,4 @@
-package com.berker.wisdomoflife.ui.quote.list
+package com.berker.wisdomoflife.ui.quote.main
 
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -10,7 +10,7 @@ import com.berker.wisdomoflife.R
 import com.berker.wisdomoflife.databinding.FragmentQuoteListBinding
 import com.berker.wisdomoflife.domain.model.Quote
 import com.berker.wisdomoflife.ui.base.BaseFragment
-import com.berker.wisdomoflife.ui.quote.list.adapter.QuoteListAdapter
+import com.berker.wisdomoflife.ui.quote.main.adapter.QuoteListAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -47,6 +47,8 @@ class QuoteListFragment : BaseFragment<FragmentQuoteListBinding>() {
                     return@collectLatest
                 }
                 setRvData(quoteListState.quoteList)
+                binding.quoteListState = quoteListState
+                binding.executePendingBindings()
             }
         }
     }

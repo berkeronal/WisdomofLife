@@ -24,17 +24,17 @@ data class QuoteEntity(
         return Quote(
             content = content,
             author = author,
-            textFont = textFont,
+            textFontId = textFont,
             textSize = QuoteTextSize.values().find { x -> x.value == textSize }
                 ?: QuoteTextSize.MEDIUM,
-            textColor = QuoteTextColor.values().find { x -> x.value == textColor }
+            textColor = QuoteTextColor.values().find { x -> x.colorResourceId == textColor }
                 ?: QuoteTextColor.RED,
             weatherType = QuoteWeatherType.values().find { x -> x.value == weatherType }
                 ?: QuoteWeatherType.NONE,
             backgroundImageUrl = backgroundImageUrl,
             backgroundImageOpacity = QuoteBackgroundImageOpacity.values()
                 .find { x -> x.value == backgroundImageOpacity } ?: QuoteBackgroundImageOpacity.LOW,
-            backgroundColor = QuoteColor . values ().find { x -> x.value == backgroundColor }
+            backgroundColor = QuoteColor . values ().find { x -> x.colorResourceId == backgroundColor }
             ?: QuoteColor.AQUA,
             textVerticalOrientation = QuoteVerticalOrientation.values()
                 .find { x -> x.value == textVerticalOrientation }

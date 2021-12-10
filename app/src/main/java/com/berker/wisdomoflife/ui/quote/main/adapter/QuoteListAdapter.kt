@@ -1,10 +1,9 @@
-package com.berker.wisdomoflife.ui.quote.list.adapter
+package com.berker.wisdomoflife.ui.quote.main.adapter
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AlphaAnimation
-import android.view.animation.TranslateAnimation
 import androidx.recyclerview.widget.RecyclerView
 import com.berker.wisdomoflife.databinding.RvItemQuiteBinding
 import com.berker.wisdomoflife.domain.model.Quote

@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/quoteListFragment"
-        android:name="com.berker.wisdomoflife.ui.quote.list.QuoteListFragment"
+        android:name="com.berker.wisdomoflife.ui.quote.main.QuoteListFragment"
         android:label="QuoteListFragment" >
         <action
             android:id="@+id/action_quoteListFragment_to_detailFragment"

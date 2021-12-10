@@ -5,20 +5,24 @@ import com.berker.wisdomoflife.data.local.QuoteDao
 import com.berker.wisdomoflife.domain.model.Quote
 import com.berker.wisdomoflife.domain.repository.QuoteRepository
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.channelFlow
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.flow
 import java.io.IOException
 
 class QuoteRepositoryImpl(
     private val dao: QuoteDao
 ) : QuoteRepository {
-    override fun getQuotes(): Flow<Resource<List<Quote>>> = flow {
-        emit(Resource.Loading())
+    override fun getQuotes(): Flow<Resource<List<Quote>>> = channelFlow {
+        trySend(Resource.Loading())
 
         try {
-            val quotes = dao.getQuotes().map { it.toQuote() }
-            emit(Resource.Success(quotes))
+            dao.getQuotes().collectLatest {
+                val quotes = it.map { x -> x.toQuote() }
+                trySend(Resource.Success(quotes))
+            }
         } catch (e: IOException) {
-            emit(Resource.Error(e.localizedMessage ?: "Error"))
+            trySend(Resource.Error(e.localizedMessage ?: "Error"))
         }
     }
 

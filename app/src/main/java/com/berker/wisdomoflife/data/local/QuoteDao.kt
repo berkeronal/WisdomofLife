@@ -5,7 +5,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.berker.wisdomoflife.data.local.entity.QuoteEntity
-import com.berker.wisdomoflife.domain.model.Quote
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface QuoteDao {
@@ -14,7 +14,7 @@ interface QuoteDao {
     suspend fun insertQuote(quote: QuoteEntity)
 
     @Query("SELECT * FROM quoteentity")
-    suspend fun getQuotes(): List<QuoteEntity>
+    fun getQuotes(): Flow<List<QuoteEntity>>
 
     @Query("SELECT * FROM quoteentity WHERE id = :quoteId")
     suspend fun getQuote(quoteId: Int): QuoteEntity

@@ -3,6 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="quoteDetailState"
+            type="com.berker.wisdomoflife.ui.quote.detail.QuoteDetailState" />
+
+        <variable
+            name="quoteDetailViewModel"
+            type="com.berker.wisdomoflife.ui.quote.detail.QuoteDetailViewModel" />
+
+        <variable
+            name="fontClick"
+            type="com.berker.wisdomoflife.ui.quote.detail.QuoteDetailEvent.ChangeTextFont" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/clQuoteDetailRoot"
         android:layout_width="match_parent"
@@ -42,7 +57,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.15" />
+            app:layout_constraintGuide_percent="0.45" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/mbOptionText"
@@ -55,6 +70,55 @@
             app:layout_constraintEnd_toStartOf="@+id/guideline3"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/mbTextFont"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:backgroundTint="@color/teal_700"
+            android:onClick="@{()->quoteDetailViewModel.onEvent(fontClick)}"
+            android:text="@string/font"
+            app:layout_constraintEnd_toStartOf="@+id/mbTextSize"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mbOptionText" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/mbTextSize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:backgroundTint="@color/teal_700"
+            android:text="@string/size"
+            app:layout_constraintBottom_toBottomOf="@+id/mbTextFont"
+            app:layout_constraintEnd_toStartOf="@+id/mbTextAlignement"
+            app:layout_constraintStart_toEndOf="@+id/mbTextFont"
+            app:layout_constraintTop_toTopOf="@+id/mbTextFont" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/mbTextAlignement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:backgroundTint="@color/teal_700"
+            app:icon="@drawable/ic_baseline_format_align_middle"
+            app:layout_constraintBottom_toBottomOf="@+id/mbTextSize"
+            app:layout_constraintEnd_toStartOf="@+id/mbTextColor"
+            app:layout_constraintStart_toEndOf="@+id/mbTextSize"
+            app:layout_constraintTop_toTopOf="@+id/mbTextSize" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/mbTextColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:backgroundTint="@color/teal_700"
+            android:text="@string/color"
+            app:layout_constraintBottom_toBottomOf="@+id/mbTextAlignement"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/mbTextAlignement"
+            app:layout_constraintTop_toTopOf="@+id/mbTextAlignement" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/mbOptionBackground"
@@ -87,9 +151,7 @@
             android:contentDescription="@string/image_note"
             app:layout_constraintBottom_toBottomOf="@+id/bgHolder"
             app:layout_constraintTop_toTopOf="@+id/glOptionsHolder"
-            tools:layout_editor_absoluteX="16dp">
-
-        </ImageView>
+            tools:layout_editor_absoluteX="16dp" />
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cvRootCard"
@@ -113,56 +175,35 @@
                 android:layout_height="wrap_content"
                 android:padding="@dimen/card_padding">
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/tilTitle"
+
+                <EditText
+                    android:id="@+id/etvContent"
+                    style="@style/tvContent"
+                    customFont="@{quoteDetailState.getFont(context)}"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="6dp"
-                    app:boxBackgroundColor="@color/transparent"
-                    app:boxStrokeWidth="0dp"
-                    app:boxStrokeWidthFocused="0dp"
-                    app:layout_constraintBottom_toTopOf="@+id/tilAuthor"
+                    android:backgroundTint="@color/transparent"
+                    android:hint="@string/etv_quote_content_holder"
+                    android:textColorHint="@color/white_soft"
+                    app:layout_constraintBottom_toTopOf="@+id/etvAuthor"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:placeholderText="@string/etv_quote_content_holder"
-                    app:placeholderTextAppearance="@color/white_soft"
-                    app:placeholderTextColor="@color/white_soft">
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                    <EditText
-                        android:id="@+id/etvContent"
-                        style="@style/tvContent"
-                        android:layout_width="match_parent"
-                        android:backgroundTint="@color/transparent"
-                        app:layout_constraintBottom_toTopOf="@+id/tvAuthor"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent" />
 
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/tilAuthor"
+                <EditText
+                    android:id="@+id/etvAuthor"
+                    customFont="@{quoteDetailState.getFont(context)}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="0dp"
-                    android:padding="0dp"
-                    app:boxBackgroundColor="@color/transparent"
-                    app:boxStrokeWidth="0dp"
-                    app:boxStrokeWidthFocused="0dp"
+                    android:backgroundTint="@color/transparent"
+                    android:hint="@string/etv_quote_author_holder"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white_soft"
+                    android:textSize="14sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tilTitle">
+                    app:layout_constraintTop_toBottomOf="@+id/etvContent" />
 
-                    <EditText
-                        android:id="@+id/etvAuthor"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:backgroundTint="@color/transparent"
-                        android:text="@string/etv_quote_author_holder"
-                        android:textColor="@color/white"
-                        android:textSize="14sp" />
-
-                </com.google.android.material.textfield.TextInputLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </com.google.android.material.card.MaterialCardView>
 
@@ -173,7 +214,7 @@
             android:layout_margin="@dimen/fab_margin"
             android:contentDescription="@string/save_note"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:srcCompat="@android:drawable/ic_menu_save" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,17 +1,13 @@
-package com.berker.wisdomoflife.ui.quote.list.adapter
+package com.berker.wisdomoflife.ui.quote.main.adapter
 
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.berker.wisdomoflife.R
 import com.berker.wisdomoflife.databinding.RvItemQuiteBinding
 import com.berker.wisdomoflife.domain.model.Quote
-import com.berker.wisdomoflife.domain.model.QuoteTextColor
 import com.berker.wisdomoflife.domain.model.QuoteWeatherType
 import com.berker.wisdomoflife.domain.model.QuoteWeatherType.*
-import com.berker.wisdomoflife.ui.quote.list.extension.setFontAndColor
-import com.berker.wisdomoflife.ui.quote.list.extension.setImage
 import com.github.matteobattilana.weather.PrecipType
 import kotlin.random.Random
 
@@ -23,34 +19,9 @@ class QuoteListViewHolder(
         itemView.setOnClickListener {
             clickedItem?.invoke(quote)
         }
-        itemBinding.apply {
-            if (quote.backgroundImageUrl.isNotEmpty()) {
-                ivRootImageView.visibility = View.VISIBLE
-                ivRootImageView.alpha = quote.backgroundImageOpacity.value
-                ivRootImageView.setImage(quote.backgroundImageUrl)
-
-            } else {
-                ivRootImageView.visibility = View.GONE
-                ivRootImageView.alpha = quote.backgroundImageOpacity.value
-
-            }
-            tvContent.text = quote.content
-            tvAuthor.text = quote.author
-
-            setFontAndColorToTextViews(quote.textFont, quote.textColor)
-            initWeather(quote.weatherType)
-
-            tvContent.textSize = quote.textSize.value
-            tvContent.textAlignment = quote.textHorizontalOrientation.value
-
-            cvRootCard.setBackgroundColor(
-                itemBinding.root.resources.getColor(
-                    quote.backgroundColor.value,
-                    null
-                )
-            )
-
-        }
+        itemBinding.quoteListItemViewState = QuoteListItemViewState(quote)
+        itemBinding.executePendingBindings()
+        initWeather(quote.weatherType)
     }
 
     private fun initWeather(quoteWeatherType: QuoteWeatherType) {
@@ -76,6 +47,7 @@ class QuoteListViewHolder(
                     speed = Random.nextInt(300, 500)
                 }
                 AUTUMN -> {
+                    setWeatherData(PrecipType.RAIN)
                     emissionRate = 10f
                     fadeOutPercent = 100f
                     angle = Random.nextInt(0, 80)
@@ -95,13 +67,6 @@ class QuoteListViewHolder(
                     setWeatherData(PrecipType.CLEAR)
                 }
             }
-        }
-    }
-
-    private fun setFontAndColorToTextViews(fontId: Int, quoteTextColor: QuoteTextColor) {
-        itemBinding.apply {
-            tvAuthor.setFontAndColor(fontId, quoteTextColor.value)
-            tvContent.setFontAndColor(fontId, quoteTextColor.value)
         }
     }
 }

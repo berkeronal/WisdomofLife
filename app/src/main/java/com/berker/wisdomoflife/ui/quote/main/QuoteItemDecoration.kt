@@ -1,4 +1,4 @@
-package com.berker.wisdomoflife.ui.quote.list
+package com.berker.wisdomoflife.ui.quote.main
 
 import android.graphics.Rect
 import android.view.View

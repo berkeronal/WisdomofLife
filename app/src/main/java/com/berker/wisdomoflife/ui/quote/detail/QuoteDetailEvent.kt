@@ -8,7 +8,7 @@ sealed class QuoteDetailEvent {
     data class ChangeBackgroundColor(val backgroundColorId: Int) : QuoteDetailEvent()
     data class ChangeBackgroundImageUrl(val imageUrl: String) : QuoteDetailEvent()
     data class ChangeBackgroundImageOpacity(val backgroundImageOpacity:Float) : QuoteDetailEvent()
-    data class ChangeTextFont(val fontId: Int) : QuoteDetailEvent()
+    object ChangeTextFont : QuoteDetailEvent()
     data class ChangeTextSize(val textSize: Float) : QuoteDetailEvent()
     data class ChangeTextColor(val textColorId: Int) : QuoteDetailEvent()
     data class ChangeTextVerticalOrientation(val textVerticalOrientationId: Int) : QuoteDetailEvent()

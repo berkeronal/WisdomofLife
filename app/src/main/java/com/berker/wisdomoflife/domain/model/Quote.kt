@@ -8,7 +8,7 @@ data class Quote(
     val content: String,
     val author: String?,
     @FontRes
-    val textFont: Int,
+    val textFontId: Int,
     val textSize: QuoteTextSize,
     val textColor: QuoteTextColor,
     val weatherType: QuoteWeatherType,
@@ -24,13 +24,13 @@ data class Quote(
         return QuoteEntity(
             content = content,
             author = author,
-            textFont = textFont,
+            textFont = textFontId,
             textSize = textSize.value,
-            textColor = textColor.value,
+            textColor = textColor.colorResourceId,
             weatherType = weatherType.value,
             backgroundImageUrl = backgroundImageUrl,
             backgroundImageOpacity = backgroundImageOpacity.value,
-            backgroundColor = backgroundColor.value,
+            backgroundColor = backgroundColor.colorResourceId,
             textHorizontalOrientation = textHorizontalOrientation.value,
             textVerticalOrientation = textHorizontalOrientation.value,
         )
@@ -71,7 +71,7 @@ enum class QuoteWeatherType(val value: Int) {
     NONE(4),
 }
 
-enum class QuoteColor(val value: Int) {
+enum class QuoteColor(val colorResourceId: Int) {
     BLUE(R.color.quote_blue),
     AQUA(R.color.quote_aqua),
     MINT(R.color.quote_mint),
@@ -81,7 +81,7 @@ enum class QuoteColor(val value: Int) {
     GREY(R.color.quote_grey)
 }
 
-enum class QuoteTextColor(val value: Int) {
+enum class QuoteTextColor(val colorResourceId: Int) {
     BLUE(R.color.quote_blue),
     AQUA(R.color.quote_aqua),
     MINT(R.color.quote_mint),
@@ -93,8 +93,13 @@ enum class QuoteTextColor(val value: Int) {
     BLACK(R.color.black),
 }
 
-enum class QuoteFonts(val value: Int) {
+enum class QuoteFonts(val fontResourceId: Int) {
+    Abril(R.font.abril_fatface),
     Aclonica(R.font.aclonica),
+    Amatic(R.font.amatic_sc),
+
 }
+
+
 
 

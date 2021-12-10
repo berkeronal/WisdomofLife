@@ -17,4 +17,8 @@
     <string name="image">Image</string>
     <string name="etv_quote_content_holder">Input Quote Input Quote</string>
     <string name="etv_quote_author_holder">Input Author</string>
+    <string name="loading_text">Getting secrets of life</string>
+    <string name="font">Font</string>
+    <string name="size">Size</string>
+    <string name="color">Color</string>
 </resources>
