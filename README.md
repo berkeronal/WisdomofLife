@@ -22,3 +22,8 @@ Wisdom of Life is a Quote app that main focus is users entering their own data w
 The app uses CleanArchitecture Use [Data-Domain-Presentation] architecture to avoid Vm's turn God ViewModels.
 
 ![Architecture](https://raw.githubusercontent.com/berkeronal/berkeronal.github.io/main/architecture.png)
+
+
+## Package Hierarchy
+
+![Hierarchy](https://raw.githubusercontent.com/berkeronal/berkeronal.github.io/main/wisdom-package.png)
